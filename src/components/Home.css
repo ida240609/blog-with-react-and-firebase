@@ -37,7 +37,7 @@
     align-items: center;
 }
 
-.nameAndDeleteButton h3 {
+.nameAndDeleteButton h2 {
     flex: 80%;
 }
 

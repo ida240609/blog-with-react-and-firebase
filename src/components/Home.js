@@ -11,7 +11,7 @@ const Home = () => {
       const data = await getDocs(collection(db, "posts"));
       // console.log(data);
       // console.log(data.docs);
-      // console.log(data.docs.map((doc) => ({ doc })));
+      console.log(data.docs.map((doc) => ({ doc })));
       setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     getPosts();
@@ -28,11 +28,12 @@ const Home = () => {
         return (
         <div className='postContents' key={post.id}>
           <div className='postHeader'>
-            <h1>{post.title}</h1>
+            <h2>{post.title}</h2>
           </div>
           <div className='postTextContainer'>{post.postsText}</div>
           <div className='nameAndDeleteButton'>
-            <h3>@{post.author.username}</h3>
+            {/* <h3>@{post.author.username}</h3> */}
+            <h3>@{post.author.id}</h3>
             {post.author.id === auth.currentUser?.uid && (
               <button onClick={() => handleDelete(post.id)}>削除</button>
             )}
