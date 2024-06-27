@@ -7,7 +7,7 @@ import Logout from './components/Logout';
 import Navbar from './components/Navbar';
 import { useState } from 'react';
 
-const APP_NAME = "blog-with-react-and-firebase"; // これが、リポジトリ名
+const APP_NAME = "/blog-with-react-and-firebase"; // リポジトリ名
 
 function App() {
   // ログインしているかどうか
