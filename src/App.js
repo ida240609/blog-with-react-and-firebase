@@ -7,20 +7,20 @@ import Logout from './components/Logout';
 import Navbar from './components/Navbar';
 import { useState } from 'react';
 
-const APP_NAME = "/blog-with-react-and-firebase"; // リポジトリ名
+// const APP_NAME = "/blog-with-react-and-firebase"; // リポジトリ名
 
 function App() {
   // ログインしているかどうか
   const [ isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Navbar isAuth={isAuth} />
       <Routes>
-        <Route path={APP_NAME + '/'} element={<Home />}></Route>
-        <Route path={APP_NAME + '/createpost'} element={<CreatePost isAuth={isAuth} />}></Route>
-        <Route path={APP_NAME + '/login'} element={<Login setIsAuth={setIsAuth} />}></Route>
-        <Route path={APP_NAME + '/logout'} element={<Logout setIsAuth={setIsAuth} />}></Route>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/createpost' element={<CreatePost isAuth={isAuth} />}></Route>
+        <Route path='/login' element={<Login setIsAuth={setIsAuth} />}></Route>
+        <Route path='/logout' element={<Logout setIsAuth={setIsAuth} />}></Route>
       </Routes>
     </Router>
   );
